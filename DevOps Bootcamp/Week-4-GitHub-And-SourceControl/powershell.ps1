@@ -1,0 +1,1 @@
+Get-AzResourceGroup -Name 'cloudskills-mw-20210228'
