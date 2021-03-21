@@ -1,0 +1,83 @@
+PS C:\Users\Matt\Google Drive\DevOps Bootcamp\Week-2-Scripting-Like-a-Developer\Python> python .\s3bucket.py cloudskillsMW20210226
+Traceback (most recent call last):
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\util\connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\socket.py", line 748, in getaddrinfo        
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\httpsession.py", line 263, in send
+    chunked=self._chunked(request.headers),
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\util\retry.py", line 379, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
+    raise value
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPSConnection object at 0x040A0310>: Failed to 
+establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ".\s3bucket.py", line 29, in <module>
+    main()
+  File ".\s3bucket.py", line 6, in main
+    create_s3bucket(bucket_name)
+  File ".\s3bucket.py", line 18, in create_s3bucket
+    ACL='private',
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\client.py", line 337, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\client.py", line 643, in _make_api_call
+    operation_model, request_dict, request_context)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\client.py", line 662, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\endpoint.py", line 102, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\endpoint.py", line 137, in _send_request
+    success_response, exception):
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\endpoint.py", line 256, in _needs_retry
+    caught_exception=caught_exception, request_dict=request_dict)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\hooks.py", line 356, 
+in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\hooks.py", line 228, 
+in emit
+    return self._emit(event_name, kwargs)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\hooks.py", line 211, 
+in _emit
+    response = handler(**kwargs)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\retryhandler.py", line 183, in __call__
+    if self._checker(attempts, response, caught_exception):
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\retryhandler.py", line 251, in __call__
+    caught_exception)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\retryhandler.py", line 277, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\retryhandler.py", line 317, in __call__
+    caught_exception)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\retryhandler.py", line 223, in __call__
+    attempt_number, caught_exception)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "C:\Users\Matt\AppData\Local\Programs\Python\Python37-32\lib\site-packages\botocore\httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "https://s3.us-east-1a.amazonaws.com/cloudskillsMW20210226"
